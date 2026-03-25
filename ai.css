@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f7f7fb;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+}
+
+.logo {
+    color: #6c5ce7;
+}
+
+nav a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #555;
+}
+
+nav .active {
+    color: #6c5ce7;
+}
+
+.user {
+    font-size: 14px;
+}
+
+/* TITLE */
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+}
+
+.title h1 {
+    font-size: 32px;
+}
+
+.dots {
+    display: flex;
+    gap: 10px;
+}
+
+.dots span {
+    width: 8px;
+    height: 8px;
+    background: black;
+    border-radius: 50%;
+}
+
+/* CHAT */
+.chat {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.bubble {
+    width: 60%;
+    padding: 40px;
+    text-align: center;
+    border: 2px solid #6c5ce7;
+    position: relative;
+}
+
+/* speech tail */
+.bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 20px;
+    border-style: solid;
+    border-color: #6c5ce7 transparent transparent transparent;
+}
+
+/* QUESTIONS */
+.questions {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.q-card {
+    background: #ececf3;
+    padding: 15px 25px;
+    border-radius: 12px;
+    color: #a06bb3;
+    cursor: pointer;
+}
+
+.bottom {
+    margin-top: 20px;
+}
+
+/* INPUT */
+.input-box {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    display: flex;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.input-box input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    outline: none;
+}
+
+.send {
+    background: transparent;
+    border: none;
+    padding: 0 20px;
+    font-size: 18px;
+    color: #6c5ce7;
+    cursor: pointer;
+}

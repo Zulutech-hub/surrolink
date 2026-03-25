@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SurroLink – Legal Experts</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #5B3FE4;
+      --purple-btn: #6B5BA6;
+      --text-dark: #111827;
+      --text-mid: #374151;
+      --text-muted: #6B7280;
+      --border: #E5E7EB;
+      --card-bg: #F3F3F5;
+      --white: #ffffff;
+      --green: #22C55E;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--purple);
+      letter-spacing: -0.3px;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-mid);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--purple); }
+    .nav-links a.active { color: var(--purple); }
+
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-login {
+      padding: 8px 22px;
+      border: 1.5px solid var(--text-dark);
+      border-radius: 8px;
+      background: transparent;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      color: var(--text-dark);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-login:hover { background: var(--text-dark); color: var(--white); }
+
+    .btn-get-started {
+      padding: 8px 22px;
+      border: none;
+      border-radius: 8px;
+      background: var(--purple);
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--white);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .btn-get-started:hover { opacity: 0.88; }
+
+    /* ── PAGE CONTENT ── */
+    .page-content {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 40px 48px 60px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .section-desc {
+      font-size: 14.5px;
+      color: var(--text-mid);
+      line-height: 1.65;
+      margin-bottom: 36px;
+      max-width: 860px;
+    }
+
+    /* ── EXPERT CARDS GRID ── */
+    .experts-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .experts-grid-row2 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    /* ── SINGLE EXPERT CARD ── */
+    .expert-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 30px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 1px solid transparent;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .expert-card:hover {
+      box-shadow: 0 6px 24px rgba(91,63,228,0.10);
+      border-color: var(--border);
+    }
+
+    .expert-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      margin-bottom: 16px;
+      display: block;
+      background: #ddd;
+    }
+
+    .expert-name-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .expert-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .verified-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .verified-icon svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .expert-specialty {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .btn-view-profile {
+      width: 100%;
+      padding: 11px 0;
+      background: var(--purple-btn);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: opacity 0.2s;
+    }
+
+    .btn-view-profile:hover { opacity: 0.88; }
+
+    .btn-book-session {
+      width: 100%;
+      padding: 11px 0;
+      background: var(--white);
+      color: var(--purple-btn);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-book-session:hover {
+      border-color: var(--purple-btn);
+      background: #f5f3ff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="logo" href="#">SurroLink</a>
+    <ul class="nav-links">
+      <li><a href="../Home/home.html">Home</a></li>
+      <li><a href="../Resources/res.html">Resource Hub</a></li>
+      <li><a href="../Legal/legal.html" class="active">Legal Experts</a></li>
+      <li><a href="../Clinic1/clinic.html">Clinics</a></li>
+      <li><a href="../Community/community.html">Community</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-login">Login</button>
+      <button class="btn-get-started">Get Started</button>
+    </div>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  <div class="page-content">
+
+    <h2 class="section-title">Legal &amp; Rights</h2>
+    <p class="section-desc">
+      Navigate the Nigerian legal landscape with clear info on contracts and parental rights. We connect you with verified experts to ensure your journey is safe, ethical, and legally sound.
+    </p>
+
+    <!-- Row 1: 4 cards -->
+    <div class="experts-grid">
+
+      <!-- Florence Adeyemi -->
+      <div class="expert-card">
+        <img
+          class="expert-avatar"
+          src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&q=80"
+          alt="Florence Adeyemi"
+        />
+        <div class="expert-name-row">
+          <span class="expert-name">Florence Adeyemi</span>
+          <span class="verified-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="#22C55E"/>
+              <path d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+        <p class="expert-specialty">Surrogacy &amp; Family Law</p>
+        <button class="btn-view-profile">View Profile</button>
+        <button class="btn-book-session">Book Session</button>
+      </div>
+
+      <!-- John Okonkwo -->
+      <div class="expert-card">
+        <img
+          class="expert-avatar"
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80"
+          alt="John Okonkwo"
+        />
+        <div class="expert-name-row">
+          <span class="expert-name">John Okonkwo</span>
+          <span class="verified-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="#22C55E"/>
+              <path d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+        <p class="expert-specialty">Adoption &amp; Parental Rights</p>
+        <button class="btn-view-profile">View Profile</button>
+        <button class="btn-book-session">Book Session</button>
+      </div>
+
+      <!-- Adejoke Festus -->
+      <div class="expert-card">
+        <img
+          class="expert-avatar"
+          src="https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=200&q=80"
+          alt="Adejoke Festus"
+        />
+        <div class="expert-name-row">
+          <span class="expert-name">Adejoke Festus</span>
+          <span class="verified-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="#22C55E"/>
+              <path d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+        <p class="expert-specialty">Family Law</p>
+        <button class="btn-view-profile">View Profile</button>
+        <button class="btn-book-session">Book Session</button>
+      </div>
+
+      <!-- Asma Yusuf -->
+      <div class="expert-card">
+        <img
+          class="expert-avatar"
+          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&q=80"
+          alt="Asma Yusuf"
+        />
+        <div class="expert-name-row">
+          <span class="expert-name">Asma Yusuf</span>
+          <span class="verified-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="#22C55E"/>
+              <path d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+        <p class="expert-specialty">Medical Agreements</p>
+        <button class="btn-view-profile">View Profile</button>
+        <button class="btn-book-session">Book Session</button>
+      </div>
+
+    </div>
+
+    <!-- Row 2: 1 card (left-aligned) -->
+    <div class="experts-grid-row2">
+
+      <!-- Eghosa Osaro -->
+      <div class="expert-card">
+        <img
+          class="expert-avatar"
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80"
+          alt="Eghosa Osaro"
+        />
+        <div class="expert-name-row">
+          <span class="expert-name">Eghosa Osaro</span>
+          <span class="verified-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="#22C55E"/>
+              <path d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+        <p class="expert-specialty">Contract Law</p>
+        <button class="btn-view-profile">View Profile</button>
+        <button class="btn-book-session">Book Session</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

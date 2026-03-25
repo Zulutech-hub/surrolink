@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f4f4f6;
+}
+
+/* MAIN LAYOUT */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* LEFT IMAGE */
+.left {
+    flex: 1;
+    background: url("images/family.jpg") center 20% / cover no-repeat;
+    position: relative;
+}
+
+/* DARK OVERLAY FOR TEXT VISIBILITY */
+.left::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.2);
+}
+
+/* TEXT OVER IMAGE */
+.overlay {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: white;
+    max-width: 280px;
+    z-index: 2;
+}
+
+.overlay h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* DOTS */
+.dots {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.dots span {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.dots .active {
+    background: #6c5ce7;
+    opacity: 1;
+}
+
+/* NEXT / SKIP */
+.bottom-text {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    font-size: 13px;
+}
+
+/* RIGHT FORM */
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f4f6;
+}
+
+/* FORM BOX */
+.form-box {
+    width: 80%;
+    max-width: 350px;
+}
+
+/* HEADINGS */
+.form-box h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+/* LABEL */
+label {
+    font-size: 13px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #eaeaea;
+    margin-bottom: 20px;
+}
+
+/* PASSWORD ROW */
+.password-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.password-row a {
+    font-size: 12px;
+    color: #6c5ce7;
+    text-decoration: none;
+}
+
+/* PASSWORD INPUT WITH ICON */
+.password-input {
+    position: relative;
+}
+
+.password-input input {
+    margin-bottom: 25px;
+}
+
+.eye {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    font-size: 14px;
+    color: #888;
+}
+
+.nav-text {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    font-size: 13px;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 14px;
+    background: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}

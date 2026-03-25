@@ -1,0 +1,535 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SurroLink – Legal & Rights Article</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #5B3FE4;
+      --purple-light: #EEEDF9;
+      --text-dark: #111827;
+      --text-mid: #374151;
+      --text-muted: #6B7280;
+      --border: #E5E7EB;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--purple);
+      letter-spacing: -0.3px;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-mid);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--purple); }
+    .nav-links a.active { color: var(--purple); }
+
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-login {
+      padding: 8px 22px;
+      border: 1.5px solid var(--text-dark);
+      border-radius: 8px;
+      background: transparent;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      color: var(--text-dark);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-login:hover { background: var(--text-dark); color: var(--white); }
+
+    .btn-get-started {
+      padding: 8px 22px;
+      border: none;
+      border-radius: 8px;
+      background: var(--purple);
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--white);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .btn-get-started:hover { opacity: 0.88; }
+
+    /* ── MAIN CONTENT ── */
+    .content {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 32px 48px 0;
+    }
+
+    /* ── BREADCRUMB + META ── */
+    .article-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb a {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover { color: var(--purple); }
+
+    .breadcrumb-chevron {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .breadcrumb-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .badge-beginner {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 999px;
+      background: var(--purple);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .article-date-read {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .clock-icon {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* ── INTRO PARAGRAPH ── */
+    .intro-para {
+      font-size: 14.5px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    /* ── ARTICLE SECTIONS ── */
+    .article-section {
+      margin-bottom: 24px;
+    }
+
+    .section-heading {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .section-body {
+      font-size: 14.5px;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+
+    .section-body p + p {
+      margin-top: 10px;
+    }
+
+    /* ── KEY TAKEAWAY BOX ── */
+    .takeaway-box {
+      display: flex;
+      gap: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--purple-light);
+      margin: 32px 0 36px;
+    }
+
+    .takeaway-bar {
+      width: 6px;
+      background: var(--purple);
+      flex-shrink: 0;
+      border-radius: 10px 0 0 10px;
+    }
+
+    .takeaway-content {
+      padding: 22px 28px;
+    }
+
+    .takeaway-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .takeaway-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .takeaway-list li {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .takeaway-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--text-mid);
+    }
+
+    /* ── PICK UP WHERE YOU LEFT OFF ── */
+    .pick-up-section {
+      margin-bottom: 40px;
+    }
+
+    .pick-up-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+
+    .related-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .related-card {
+      cursor: pointer;
+    }
+
+    .related-card-image {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .related-card-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-mid);
+      margin-bottom: 14px;
+    }
+
+    .related-card-label svg {
+      opacity: 0.6;
+    }
+
+    .related-card-progress-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .progress-bar-bg {
+      flex: 1;
+      height: 4px;
+      background: var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--purple);
+      border-radius: 999px;
+    }
+
+    .progress-arrow {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark);
+      font-size: 15px;
+      flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+
+    .related-card:hover .progress-arrow {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: var(--white);
+    }
+
+    /* ── BOTTOM NAV ── */
+    .bottom-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 48px;
+      border-top: 1px solid var(--border);
+      margin-top: 10px;
+    }
+
+    .bottom-nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .bottom-nav a:hover { color: var(--purple); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="logo" href="#">SurroLink</a>
+    <ul class="nav-links">
+      <li><a href="../Home/home.html">Home</a></li>
+      <li><a href="../Resources/res.html" class="active">Resource Hub</a></li>
+      <li><a href="../Legal/legal.html">Legal Experts</a></li>
+      <li><a href="../Clinics/clinics.html">Clinics</a></li>
+      <li><a href="../Community/community.html">Community</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-login">Login</button>
+      <button class="btn-get-started">Get Started</button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE CONTENT -->
+  <div class="content">
+
+    <!-- Breadcrumb + Meta -->
+    <div class="article-meta-row">
+      <div class="breadcrumb">
+        <a href="#">Legal &amp; Rights</a>
+        <span class="breadcrumb-chevron">›</span>
+        <span class="breadcrumb-title">
+          Understanding Parental Rights in Surrogacy: A Complete Nigerian Legal Guide
+        </span>
+        <span class="badge-beginner">Beginner</span>
+      </div>
+      <div class="article-date-read">
+        <span>19 Jan 2025</span>
+        <span>&nbsp;&nbsp;4 min read</span>
+        <span class="clock-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"/>
+            <polyline points="12 7 12 12 15 15"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <p class="intro-para">
+      Navigating parental rights in surrogacy can be complex, especially within the Nigerian legal framework. This comprehensive guide breaks down everything you need to know about establishing and protecting your parental rights when pursuing surrogacy in Nigeria.
+    </p>
+
+    <!-- Section 1 -->
+    <div class="article-section">
+      <h2 class="section-heading">Legal Framework in Nigeria</h2>
+      <div class="section-body">
+        <p>Unlike some countries with explicit surrogacy legislation, Nigeria operates under a combination of common law principles and specific family law provisions. Understanding these frameworks is crucial for protecting your rights as intended parents.</p>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="article-section">
+      <h2 class="section-heading">The Birth Certificate Process</h2>
+      <div class="section-body">
+        <p>One of the most critical steps in establishing parental rights is ensuring your names appear on the birth certificate. This process typically involves coordination with your fertility clinic, legal counsel, and the relevant government registry offices.</p>
+        <p>The intended parents should work with their legal team to prepare all necessary documentation before the birth. This includes the surrogacy agreement, medical records confirming genetic parentage, and any court orders that may be required in your jurisdiction.</p>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="article-section">
+      <h2 class="section-heading">Protecting Your Rights</h2>
+      <div class="section-body">
+        <p>Beyond the initial legal framework, ongoing protection of parental rights requires careful attention to documentation and legal compliance. Working with experienced legal counsel throughout your surrogacy journey is not just recommended—it is essential for ensuring your rights are fully protected under Nigerian law.</p>
+      </div>
+    </div>
+
+    <!-- Key Takeaway -->
+    <div class="takeaway-box">
+      <div class="takeaway-bar"></div>
+      <div class="takeaway-content">
+        <div class="takeaway-title">Key Takeaway</div>
+        <ul class="takeaway-list">
+          <li>In Nigeria, Intended Parents must be listed on the birth certificate. The surrogate has no automatic parental rights, but legal documentation is essential.</li>
+          <li>A properly drafted surrogacy agreement protects all parties and establishes clear intentions before conception.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Pick Up Where You Left Off -->
+    <div class="pick-up-section">
+      <h3 class="pick-up-title">Pick Up Where You Left Off</h3>
+      <div class="related-cards">
+
+        <!-- Card 1 -->
+        <div class="related-card">
+          <img
+            class="related-card-image"
+            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80"
+            alt="Legal documents with glasses"
+          />
+          <div class="related-card-label">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Clinic &amp; Medical Hub
+          </div>
+          <div class="related-card-progress-row">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 45%"></div>
+            </div>
+            <a href="#" class="progress-arrow">→</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="related-card">
+          <img
+            class="related-card-image"
+            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80"
+            alt="Person typing on laptop"
+          />
+          <div class="related-card-label">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Clinic &amp; Medical Hub
+          </div>
+          <div class="related-card-progress-row">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 60%"></div>
+            </div>
+            <a href="#" class="progress-arrow">→</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="related-card">
+          <img
+            class="related-card-image"
+            src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80"
+            alt="Business meeting with documents"
+          />
+          <div class="related-card-label">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Clinic &amp; Medical Hub
+          </div>
+          <div class="related-card-progress-row">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 30%"></div>
+            </div>
+            <a href="#" class="progress-arrow">→</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <a href="#">
+      <span>←</span>
+      <span>Understanding Parental Rights</span>
+    </a>
+    <a href="#">
+      <span>Birth Certificate Process</span>
+      <span>→</span>
+    </a>
+  </div>
+
+</body>
+</html>
